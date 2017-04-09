@@ -107,7 +107,7 @@
       <file leaf-file-name="README.rst" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="52" selection-start="643" selection-end="695" vertical-scroll-proportion="0.44520548" vertical-offset="105" max-vertical-offset="720">
+            <state line="20" column="0" selection-start="643" selection-end="696" vertical-scroll-proportion="0.44520548" vertical-offset="105" max-vertical-offset="720">
               <folding />
             </state>
           </provider>
@@ -751,7 +751,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="52" selection-start="643" selection-end="695" vertical-scroll-proportion="0.44520548" vertical-offset="105" max-vertical-offset="720">
+        <state line="20" column="0" selection-start="643" selection-end="696" vertical-scroll-proportion="0.44520548" vertical-offset="105" max-vertical-offset="720">
           <folding />
         </state>
       </provider>
