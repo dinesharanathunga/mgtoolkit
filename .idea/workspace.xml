@@ -68,29 +68,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".travis.yml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name=".travis.yml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="8" selection-start="352" selection-end="352" vertical-scroll-proportion="-4.117647" vertical-offset="0" max-vertical-offset="510">
+            <state line="23" column="25" selection-start="688" selection-end="688" vertical-scroll-proportion="0.57788944" vertical-offset="0" max-vertical-offset="597">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.rst" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.rst">
+      <file leaf-file-name="travis_pypi_setup.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/travis_pypi_setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="66" selection-start="283" selection-end="283" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="720">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".coveragerc" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.coveragerc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="7" selection-start="166" selection-end="166" vertical-scroll-proportion="0.18518518" vertical-offset="0" max-vertical-offset="648">
-              <folding />
+            <state line="11" column="19" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1920">
+              <folding>
+                <element signature="e#109#146#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -153,7 +146,6 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
     <option name="y" value="23" />
     <option name="width" value="1920" />
     <option name="height" value="1010" />
@@ -421,7 +413,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="23" width="1920" height="1010" extended-state="6" />
+    <frame x="0" y="23" width="1920" height="1010" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -736,15 +728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/travis_pypi_setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="19" selection-start="242" selection-end="242" vertical-scroll-proportion="0.3409091" vertical-offset="0" max-vertical-offset="1920">
-          <folding>
-            <element signature="e#109#146#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CONTRIBUTING.rst">
       <provider selected="true" editor-type-id="text-editor">
         <state line="51" column="38" selection-start="1311" selection-end="1311" vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="1800">
@@ -801,16 +784,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
+    <entry file="file://$PROJECT_DIR$/travis_pypi_setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="8" selection-start="352" selection-end="352" vertical-scroll-proportion="-4.117647" vertical-offset="0" max-vertical-offset="510">
-          <folding />
+        <state line="11" column="19" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1920">
+          <folding>
+            <element signature="e#109#146#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.coveragerc">
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="7" selection-start="166" selection-end="166" vertical-scroll-proportion="0.18518518" vertical-offset="0" max-vertical-offset="648">
+        <state line="23" column="25" selection-start="688" selection-end="688" vertical-scroll-proportion="0.57788944" vertical-offset="0" max-vertical-offset="597">
           <folding />
         </state>
       </provider>
