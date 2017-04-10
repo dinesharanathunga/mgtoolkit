@@ -2,8 +2,10 @@ import unittest
 from mgtoolkit.library import Metagraph, ConditionalMetagraph, Edge
 
 
+# noinspection PyAttributeOutsideInit
 class RunTests(unittest.TestCase):
 
+    # noinspection PyPep8Naming
     def setUp(self):
         self.generating_set1 = {1, 2, 3, 4, 5, 6, 7}
         self.mg1 = Metagraph(self.generating_set1)

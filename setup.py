@@ -18,6 +18,7 @@ if sys.version_info[:2] != (2, 7):
           sys.version_info[:2])
     sys.exit(-1)
 
+
 # This is a plug-in for setuptools that will invoke py.test
 # when you run python setup.py test
 class PyTest(test_command):
@@ -64,7 +65,7 @@ setup(
     license="MIT license",
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
-        'Intended Audience :: Science/Research/Developers',
+        'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Operating System :: MacOS :: MacOS X',
         'Operating System :: POSIX :: Linux',

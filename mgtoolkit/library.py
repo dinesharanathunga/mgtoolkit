@@ -6,9 +6,11 @@ import math
 
 
 def singleton(cls):
-    """
-    :param cls:
-    :return:
+    """A helper function to ease implementing singletons.
+    This should be used as a decorator to the
+    class that should be a singleton.
+    :param cls: class that should be a singleton
+    :return: singleton instance of the class
     """
     instances = {}
 
@@ -1635,7 +1637,7 @@ class ConditionalMetagraph(Metagraph):
 
     def get_all_metapaths(self):
         """ Retrieves all metapaths in the conditional metagraph.
-        :return: List of metapath objects
+        :return: List of Metapath objects
         """
 
         #TODO: should we consider metapaths involving node groups?
@@ -2282,9 +2284,9 @@ class MetagraphHelper:
         return edge_list
 
     def get_edge_list(self, nested_edges):
-        """ Returns a list of non-nested edges.
-        :param nested_edges:
-        :return:
+        """ Returns a non-nested list of edges.
+        :param nested_edges: nested list of Edge objects
+        :return: non-nested list of Edge objects.
         """
 
         edge_list = []
@@ -2304,9 +2306,9 @@ class MetagraphHelper:
         return edge_list
 
     def get_edges_from_triple_list(self, nested_triples):
-        """ Returns the edges present in a list of nested Triple objects.
-        :param nested_triples:
-        :return:
+        """ Returns the edges present in a nested list of Triple objects.
+        :param nested_triples: nested list of Triple objects
+        :return: non-nested list of Triple objects
         """
 
         result = []
@@ -2333,10 +2335,10 @@ class MetagraphHelper:
         return result
 
     def is_triple_in_list(self, triple, triples_list):
-        """ Checks whether a particular Triple object is present in a given list of Triples.
-        :param triple:
-        :param triples_list:
-        :return:
+        """ Checks whether a particular Triple object is in a given list of Triples.
+        :param triple: Triple object
+        :param triples_list: list of Triple object
+        :return: boolean
         """
 
         if triple is None:
@@ -2364,9 +2366,9 @@ class MetagraphHelper:
 
     def is_edge_in_list(self, edge, nested_edges):
         """ Checks whether a particular edge is in the nested list of edges.
-        :param edge:
-        :param nested_edges:
-        :return:
+        :param edge: Edge object
+        :param nested_edges: nested list of Edge objects
+        :return: boolean
         """
 
         if edge is None:
@@ -2389,9 +2391,9 @@ class MetagraphHelper:
 
     def is_node_in_list(self, node, node_list):
         """ Checks if a particular node is in the given list of nodes.
-        :param node:
-        :param node_list:
-        :return:
+        :param node: Node object
+        :param node_list: list of Node objects
+        :return: boolean
         """
 
         if node is None:
@@ -2414,9 +2416,9 @@ class MetagraphHelper:
 
     def are_triples_equal(self, triple1, triple2):
         """ Checks if the two given triples are equal.
-        :param triple1:
-        :param triple2:
-        :return:
+        :param triple1: Triple object
+        :param triple2: Triple object
+        :return: boolean
         """
 
         if triple1 is None:
@@ -2447,9 +2449,9 @@ class MetagraphHelper:
     @staticmethod
     def are_edges_equal(edge1, edge2):
         """ Checks if the two given edges are equal.
-        :param edge1:
-        :param edge2:
-        :return:
+        :param edge1: Edge object
+        :param edge2: Edge object
+        :return: boolean
         """
 
         if edge1 is None:
@@ -2474,9 +2476,9 @@ class MetagraphHelper:
     @staticmethod
     def are_nodes_equal(node1, node2):
         """ Checks if two given nodes are equal.
-        :param node1:
-        :param node2:
-        :return:
+        :param node1: Node object
+        :param node2: Node object
+        :return: boolean
         """
 
         if node1 is None:
@@ -2492,10 +2494,10 @@ class MetagraphHelper:
 
     @staticmethod
     def is_edge_list_included(edges, reference_edge_list):
-        """ Checks if an edge is included in the reference edge list.
-        :param edges:
-        :param reference_edge_list:
-        :return:
+        """ Checks if an edge list is included in the reference edge list.
+        :param edges: list of Edge objects
+        :param reference_edge_list: reference lists of Edge objects
+        :return: boolean
         """
 
         if edges is None or len(edges) == 0:
@@ -2522,8 +2524,8 @@ class MetagraphHelper:
 
     def get_netinputs(self, edge_list):
         """ Retrieves a list of net inputs corresponding to the given edge list.
-        :param edge_list:
-        :return:
+        :param edge_list: list of Edge objects
+        :return: list
         """
 
         if edge_list is None or len(edge_list) == 0:
@@ -2545,8 +2547,8 @@ class MetagraphHelper:
 
     def get_netoutputs(self, edge_list):
         """ Retrieves a list of net outputs corresponding to the given edge list.
-        :param edge_list:
-        :return:
+        :param edge_list: list of Edge objects
+        :return: list
         """
 
         if edge_list is None or len(edge_list) == 0:
@@ -2569,8 +2571,8 @@ class MetagraphHelper:
     @staticmethod
     def get_coinputs_from_triples(triples_list):
         """ Retrieves a list of co-inputs corresponding to the given triples list.
-        :param triples_list:
-        :return:
+        :param triples_list: list of Triple objects
+        :return: list
         """
 
         if triples_list is None or len(triples_list) == 0:
@@ -2588,8 +2590,8 @@ class MetagraphHelper:
     @staticmethod
     def get_cooutputs_from_triples(triples_list):
         """ Retrieves a list of co-outputs corresponding to the given triples list.
-        :param triples_list:
-        :return:
+        :param triples_list: list of Triple objects
+        :return: list
         """
 
         if triples_list is None or len(triples_list) == 0:
@@ -2606,8 +2608,8 @@ class MetagraphHelper:
 
     def extract_edge_list(self, nested_edge_list):
         """ Retrieves a non-nested edge list from the given nested list.
-        :param nested_edge_list:
-        :return:
+        :param nested_edge_list: nested list of Edge objects
+        :return: non-nested list of Edge objects.
         """
 
         if nested_edge_list is None or len(nested_edge_list) == 0:
@@ -2626,10 +2628,10 @@ class MetagraphHelper:
         return result
 
     def node_lists_overlap(self, nodes_list1, nodes_list2):
-        """ Checks if nodes in  a non-nested edge list from the given nested list.
-        :param nodes_list1:
-        :param nodes_list2:
-        :return:
+        """ Checks if two lists of nodes overlap.
+        :param nodes_list1: list of Node objects
+        :param nodes_list2: list of Node objects
+        :return: boolean
         """
 
         for node1 in nodes_list1:
@@ -2640,10 +2642,10 @@ class MetagraphHelper:
 
     @staticmethod
     def nodes_overlap(nodes_list1, nodes_list2):
-        """
-        :param nodes_list1:
-        :param nodes_list2:
-        :return:
+        """ Checks if two lists of nodes overlap.
+        :param nodes_list1: list of Node objects
+        :param nodes_list2: list of Node objects
+        :return: boolean
         """
 
         for node1 in nodes_list1:
@@ -2656,9 +2658,9 @@ class MetagraphHelper:
 
     @staticmethod
     def get_generating_set(edge_list):
-        """
-        :param edge_list:
-        :return:
+        """ Retrieves the generating set of the metagraph from its edge list.
+        :param edge_list: list of Edge objects
+        :return: set
         """
 
         if edge_list is None or len(edge_list) == 0:
@@ -2678,9 +2680,9 @@ class MetagraphHelper:
 
     @staticmethod
     def get_element_set(nodes_list):
-        """
-        :param nodes_list:
-        :return:
+        """ Retrieves the set of elements within a given list of nodes
+        :param nodes_list: list of Node objects
+        :return: set
         """
         if nodes_list is not None and len(nodes_list) > 0:
             result = set()
@@ -2693,9 +2695,9 @@ class MetagraphHelper:
 
     @staticmethod
     def transpose_matrix(matrix):
-        """
-        :param matrix:
-        :return:
+        """ Computes the transpose matrix of given matrix
+        :param matrix: 2D array
+        :return: 2D array
         """
 
         if matrix is None:
@@ -2714,11 +2716,11 @@ class MetagraphHelper:
 
     @staticmethod
     def custom_multiply_matrices(matrix1, matrix2, edge_list):
-        """Multiplies
-        :param matrix1:
-        :param matrix2:
-        :param edge_list:
-        :return:
+        """Multiplies the Triple lists of two matrices
+        :param matrix1: 2D array
+        :param matrix2: 2D array
+        :param edge_list: list of Edge objects
+        :return: 2D array
         """
 
         if matrix1 is None:
@@ -2750,12 +2752,12 @@ class MetagraphHelper:
 
     @staticmethod
     def custom_add_matrix_elements(k, a_ik, b_kj, y):
-        """
-        :param k:
-        :param a_ik:
-        :param b_kj:
-        :param y:
-        :return:
+        """Custom addition of matrix elements.
+        :param k: int
+        :param a_ik: int
+        :param b_kj: int
+        :param y: list
+        :return: set
         """
 
         if len(y) < k+1:
