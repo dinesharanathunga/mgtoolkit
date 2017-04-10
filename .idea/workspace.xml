@@ -68,10 +68,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".travis.yml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name=".travis.yml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="8" selection-start="1061" selection-end="1061" vertical-scroll-proportion="-9.6" vertical-offset="0" max-vertical-offset="360">
+            <state line="18" column="0" selection-start="1095" selection-end="1095" vertical-scroll-proportion="0.53892213" vertical-offset="0" max-vertical-offset="501">
               <folding />
             </state>
           </provider>
@@ -95,10 +95,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setup.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="setup.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="6" selection-start="1255" selection-end="1255" vertical-scroll-proportion="0.22263451" vertical-offset="510" max-vertical-offset="1425">
+            <state line="44" column="4" selection-start="1250" selection-end="1250" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1425">
               <folding />
             </state>
           </provider>
@@ -132,7 +132,6 @@
         <option value="$PROJECT_DIR$/mgtoolkit/cli.py" />
         <option value="$PROJECT_DIR$/setup.cfg" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/docs/reference.rst " />
         <option value="$PROJECT_DIR$/docs/index.rst" />
         <option value="$PROJECT_DIR$/docs/tutorial.rst" />
@@ -148,6 +147,7 @@
         <option value="$PROJECT_DIR$/README.rst" />
         <option value="$PROJECT_DIR$/requirements_dev.txt" />
         <option value="$PROJECT_DIR$/setup.py" />
+        <option value="$PROJECT_DIR$/.travis.yml" />
       </list>
     </option>
   </component>
@@ -742,13 +742,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="8" selection-start="1061" selection-end="1061" vertical-scroll-proportion="-9.6" vertical-offset="0" max-vertical-offset="360">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mgtoolkit.egg-info/requires.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="0" selection-start="28" selection-end="28" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="150">
@@ -795,14 +788,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="933" selection-end="942" vertical-scroll-proportion="0.77922076" vertical-offset="0" max-vertical-offset="720">
+        <state line="23" column="0" selection-start="850" selection-end="850" vertical-scroll-proportion="0.6400742" vertical-offset="0" max-vertical-offset="720">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="6" selection-start="1255" selection-end="1255" vertical-scroll-proportion="0.22263451" vertical-offset="510" max-vertical-offset="1425">
+        <state line="44" column="4" selection-start="1250" selection-end="1250" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1425">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="1095" selection-end="1095" vertical-scroll-proportion="0.53892213" vertical-offset="0" max-vertical-offset="501">
           <folding />
         </state>
       </provider>
