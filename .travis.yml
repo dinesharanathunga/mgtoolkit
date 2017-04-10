@@ -7,7 +7,7 @@ matrix:
       env: NUMPY=1.10.2
 
 notifications:
-  email: false
+  email: true
 
 before_install:
  - travis_retry wget http://repo.continuum.io/miniconda/Miniconda-3.8.3-Linux-x86_64.sh -O miniconda.sh
@@ -23,6 +23,8 @@ install:
  - conda install --yes -c dan_blanchard python-coveralls nose-cov
  - pip install setuptools
  - python setup.py install
+ - pip install sdist
 
 script:
- - nosetests --with-cov --cover-tests mgtoolkit --logging-level=INFO
+ - nosetests --with-cov --cover-tests mgtoolkit --cov-config .coveragerc --logging-level=INFO
+
