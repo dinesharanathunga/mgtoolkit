@@ -63,3 +63,6 @@ target/
 
 # travis setup file
 travis_pypi_setup.py
+
+# dev file
+requirements_dev.txt
