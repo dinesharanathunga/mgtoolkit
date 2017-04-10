@@ -7,6 +7,9 @@ class RunTests(unittest.TestCase):
 
     # noinspection PyPep8Naming
     def setUp(self):
+        import numpy
+        t = numpy.version
+
         self.generating_set1 = {1, 2, 3, 4, 5, 6, 7}
         self.mg1 = Metagraph(self.generating_set1)
         self.mg1.add_edges_from([Edge({1}, {2, 3}), Edge({1, 4}, {5}), Edge({3}, {6, 7})])
