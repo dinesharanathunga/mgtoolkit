@@ -20,8 +20,9 @@ install:
  - conda create --yes -n test python=$TRAVIS_PYTHON_VERSION
  - source activate test
  - conda install --yes numpy=$NUMPY pip
+ - conda install --yes -c dan_blanchard python-coveralls nose-cov
  - pip install setuptools
  - python setup.py install
 
 script:
- - nosetests --with-cov --cover-tests mgtoolkit --cov-config .coveragerc --logging-level=INFO
+ - nosetests --with-cov --cov mgtoolkit --cov-config .coveragerc --logging-level=INFO
