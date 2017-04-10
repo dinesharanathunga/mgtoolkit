@@ -68,10 +68,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".travis.yml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name=".travis.yml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="1095" selection-end="1095" vertical-scroll-proportion="0.53892213" vertical-offset="0" max-vertical-offset="501">
+            <state line="13" column="10" selection-start="385" selection-end="385" vertical-scroll-proportion="-3.8235295" vertical-offset="0" max-vertical-offset="555">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".coveragerc" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.coveragerc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="26" selection-start="158" selection-end="158" vertical-scroll-proportion="0.19480519" vertical-offset="0" max-vertical-offset="539">
               <folding />
             </state>
           </provider>
@@ -90,15 +99,6 @@
         <entry file="file://$PROJECT_DIR$/docs/readme.rst">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="105">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="setup.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/setup.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="4" selection-start="1250" selection-end="1250" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1425">
               <folding />
             </state>
           </provider>
@@ -148,6 +148,7 @@
         <option value="$PROJECT_DIR$/requirements_dev.txt" />
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/.travis.yml" />
+        <option value="$PROJECT_DIR$/.coveragerc" />
       </list>
     </option>
   </component>
@@ -201,34 +202,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mgtoolkit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mgtoolkit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mgtoolkit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mgtoolkit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mgtoolkit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="docs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -250,6 +223,11 @@
         <option name="myWorkingDirectory" value="C:/Hungs project/pbn-app" />
       </console-settings>
     </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.tests">
     <configuration default="false" name="tests" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -466,11 +444,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/setup.cfg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LICENSE">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
@@ -786,23 +759,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.rst">
+    <entry file="file://$PROJECT_DIR$/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="850" selection-end="850" vertical-scroll-proportion="0.6400742" vertical-offset="0" max-vertical-offset="720">
+        <state line="70" column="12" selection-start="2009" selection-end="2009" vertical-scroll-proportion="0.9461967" vertical-offset="510" max-vertical-offset="1425">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
+    <entry file="file://$PROJECT_DIR$/README.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="4" selection-start="1250" selection-end="1250" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1425">
+        <state line="13" column="34" selection-start="469" selection-end="469" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="1095" selection-end="1095" vertical-scroll-proportion="0.53892213" vertical-offset="0" max-vertical-offset="501">
+        <state line="13" column="10" selection-start="385" selection-end="385" vertical-scroll-proportion="-3.8235295" vertical-offset="0" max-vertical-offset="555">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.coveragerc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="26" selection-start="158" selection-end="158" vertical-scroll-proportion="0.19480519" vertical-offset="0" max-vertical-offset="539">
           <folding />
         </state>
       </provider>
