@@ -35,7 +35,7 @@
       <file leaf-file-name="requirements_dev.txt" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/requirements_dev.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="158" selection-end="158" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+            <state line="11" column="0" selection-start="158" selection-end="158" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="255">
               <folding />
             </state>
           </provider>
@@ -44,7 +44,7 @@
       <file leaf-file-name="HISTORY.rst" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HISTORY.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="210">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
               <folding />
             </state>
           </provider>
@@ -53,7 +53,7 @@
       <file leaf-file-name="CONTRIBUTING.rst" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CONTRIBUTING.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="114" column="0" selection-start="3270" selection-end="3270" vertical-scroll-proportion="-31.88" vertical-offset="913" max-vertical-offset="1800">
+            <state line="114" column="0" selection-start="3270" selection-end="3270" vertical-scroll-proportion="0.0" vertical-offset="913" max-vertical-offset="1800">
               <folding />
             </state>
           </provider>
@@ -62,7 +62,7 @@
       <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="24" selection-start="488" selection-end="488" vertical-scroll-proportion="-14.08" vertical-offset="158" max-vertical-offset="1050">
+            <state line="34" column="24" selection-start="488" selection-end="488" vertical-scroll-proportion="0.0" vertical-offset="158" max-vertical-offset="1050">
               <folding />
             </state>
           </provider>
@@ -71,7 +71,7 @@
       <file leaf-file-name="AUTHORS.rst" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AUTHORS.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="131" selection-end="131" vertical-scroll-proportion="-7.8" vertical-offset="0" max-vertical-offset="285">
+            <state line="13" column="0" selection-start="131" selection-end="131" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="285">
               <folding />
             </state>
           </provider>
@@ -80,7 +80,7 @@
       <file leaf-file-name="library.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/_build/html/_modules/mgtoolkit/library.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="1" selection-start="2106" selection-end="2106" vertical-scroll-proportion="-5.3333335" vertical-offset="637" max-vertical-offset="43770">
+            <state line="51" column="1" selection-start="2106" selection-end="2106" vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="43800">
               <folding />
             </state>
           </provider>
@@ -89,7 +89,7 @@
       <file leaf-file-name="usage.rst" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/usage.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="20" selection-start="72" selection-end="72" vertical-scroll-proportion="-3.6" vertical-offset="0" max-vertical-offset="210">
+            <state line="6" column="20" selection-start="72" selection-end="72" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="210">
               <folding />
             </state>
           </provider>
@@ -98,7 +98,7 @@
       <file leaf-file-name="unit_tests.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/unit_tests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="8" selection-start="200" selection-end="200" vertical-scroll-proportion="0.33333334" vertical-offset="57" max-vertical-offset="3165">
+            <state line="38" column="39" selection-start="1667" selection-end="1667" vertical-scroll-proportion="0.867052" vertical-offset="120" max-vertical-offset="3180">
               <folding />
             </state>
           </provider>
@@ -107,7 +107,7 @@
       <file leaf-file-name="readme.rst" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/readme.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="105">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="105">
               <folding />
             </state>
           </provider>
@@ -152,8 +152,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="40" />
-    <option name="y" value="30" />
+    <option name="y" value="24" />
     <option name="width" value="1920" />
     <option name="height" value="1010" />
   </component>
@@ -183,7 +182,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -218,10 +216,11 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="/Volumes/NO NAME/swx/mgtoolkit-code" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/test_mgtoolkit.py" />
     <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -237,20 +236,20 @@
       </console-settings>
     </option>
   </component>
-  <component name="RunManager" selected="Python.travis">
-    <configuration default="false" name="travis" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.tests">
+    <configuration default="false" name="tests" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="/usr/local/bin/python2.7" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="mgtoolkit" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/travis_pypi_setup.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/test_mgtoolkit.py" />
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
@@ -395,11 +394,11 @@
       <method />
     </configuration>
     <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="Python.travis" />
+      <item index="0" class="java.lang.String" itemvalue="Python.tests" />
     </list>
     <recent_temporary>
       <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.travis" />
+        <item index="0" class="java.lang.String" itemvalue="Python.tests" />
       </list>
     </recent_temporary>
   </component>
@@ -413,25 +412,25 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="40" y="30" width="1920" height="1010" extended-state="0" />
-    <editor active="false" />
+    <frame x="0" y="24" width="1920" height="1010" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32896176" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13541667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.78469944" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.04262295" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4021858" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32896176" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.78469944" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
@@ -454,9 +453,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
@@ -471,36 +468,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LICENSE">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mgtoolkit/library.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="42480">
-          <folding>
-            <element signature="e#1587#2170#0" expanded="false" />
-            <element signature="e#2197#3729#0" expanded="false" />
-            <element signature="e#3760#5520#0" expanded="false" />
-            <element signature="e#58332#80163#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/test_mgtoolkit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/unit_tests.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3135">
-          <folding>
-            <element signature="e#0#15#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -513,16 +499,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/index.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/installation.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.editorconfig">
@@ -532,16 +514,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/travis_pypi_setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mgtoolkit/cli.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/setup.py">
@@ -553,20 +531,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/conf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mgtoolkit/library.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding>
-            <element signature="e#1587#2170#0" expanded="false" />
-            <element signature="e#2197#3729#0" expanded="false" />
-            <element signature="e#3760#5520#0" expanded="false" />
-            <element signature="e#58332#80163#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -582,9 +553,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mgtoolkit/exception.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mgtoolkit/properties.py">
@@ -599,9 +568,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mgtoolkit/cli.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/setup.cfg">
@@ -611,9 +578,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LICENSE">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
@@ -623,58 +588,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/test_mgtoolkit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/contributing.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="887">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="887" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/authors.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="887">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="887" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/make.bat">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3720">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3720" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/Makefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="38" selection-start="215" selection-end="215" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2745">
-          <folding />
-        </state>
+        <state line="9" column="38" selection-start="215" selection-end="215" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2745" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/history.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="887">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="887" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/installation.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="61" selection-end="61" vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="855">
-          <folding />
-        </state>
+        <state line="5" column="0" selection-start="61" selection-end="61" vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="855" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/tutorial.rst">
@@ -686,9 +635,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/index.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="3" selection-start="195" selection-end="195" vertical-scroll-proportion="-8.4" vertical-offset="0" max-vertical-offset="420">
-          <folding />
-        </state>
+        <state line="14" column="3" selection-start="195" selection-end="195" vertical-scroll-proportion="-8.4" vertical-offset="0" max-vertical-offset="420" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/reference.rst">
@@ -701,12 +648,7 @@
     <entry file="file://$PROJECT_DIR$/mgtoolkit/library.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="599" column="32" selection-start="20403" selection-end="20403" vertical-scroll-proportion="0.82535887" vertical-offset="6375" max-vertical-offset="33570">
-          <folding>
-            <element signature="e#1587#2170#0" expanded="false" />
-            <element signature="e#2197#3729#0" expanded="false" />
-            <element signature="e#3760#5520#0" expanded="false" />
-            <element signature="e#58332#80163#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -719,7 +661,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="24" selection-start="488" selection-end="488" vertical-scroll-proportion="-14.08" vertical-offset="158" max-vertical-offset="1050">
+        <state line="34" column="24" selection-start="488" selection-end="488" vertical-scroll-proportion="0.0" vertical-offset="158" max-vertical-offset="1050">
           <folding />
         </state>
       </provider>
@@ -747,14 +689,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CONTRIBUTING.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="0" selection-start="3270" selection-end="3270" vertical-scroll-proportion="-31.88" vertical-offset="913" max-vertical-offset="1800">
+        <state line="114" column="0" selection-start="3270" selection-end="3270" vertical-scroll-proportion="0.0" vertical-offset="913" max-vertical-offset="1800">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AUTHORS.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="131" selection-end="131" vertical-scroll-proportion="-7.8" vertical-offset="0" max-vertical-offset="285">
+        <state line="13" column="0" selection-start="131" selection-end="131" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="285">
           <folding />
         </state>
       </provider>
@@ -768,30 +710,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/_build/html/_modules/mgtoolkit/library.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="1" selection-start="2106" selection-end="2106" vertical-scroll-proportion="-5.3333335" vertical-offset="637" max-vertical-offset="43770">
+        <state line="51" column="1" selection-start="2106" selection-end="2106" vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="43800">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/usage.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="20" selection-start="72" selection-end="72" vertical-scroll-proportion="-3.6" vertical-offset="0" max-vertical-offset="210">
+        <state line="6" column="20" selection-start="72" selection-end="72" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="210">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/travis_pypi_setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="17" selection-start="228" selection-end="240" vertical-scroll-proportion="0.26241136" vertical-offset="128" max-vertical-offset="1920">
-          <folding />
-        </state>
+        <state line="11" column="17" selection-start="228" selection-end="240" vertical-scroll-proportion="0.26241136" vertical-offset="128" max-vertical-offset="1920" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/conf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="27" selection-start="3891" selection-end="3891" vertical-scroll-proportion="0.33333334" vertical-offset="1768" max-vertical-offset="4335">
-          <folding />
-        </state>
+        <state line="122" column="27" selection-start="3891" selection-end="3891" vertical-scroll-proportion="0.33333334" vertical-offset="1768" max-vertical-offset="4335" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/setup.py">
@@ -803,7 +741,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/unit_tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="8" selection-start="200" selection-end="200" vertical-scroll-proportion="0.33333334" vertical-offset="57" max-vertical-offset="3165">
+        <state line="38" column="39" selection-start="1667" selection-end="1667" vertical-scroll-proportion="0.867052" vertical-offset="120" max-vertical-offset="3180">
           <folding />
         </state>
       </provider>
