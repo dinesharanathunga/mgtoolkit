@@ -59,10 +59,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="requirements_dev.txt" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="requirements_dev.txt" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/requirements_dev.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="13" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+            <state line="10" column="0" selection-start="140" selection-end="140" vertical-scroll-proportion="0.27829313" vertical-offset="0" max-vertical-offset="539">
               <folding />
             </state>
           </provider>
@@ -95,10 +95,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setup.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="setup.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="20" selection-start="1245" selection-end="1245" vertical-scroll-proportion="0.31906614" vertical-offset="451" max-vertical-offset="1425">
+            <state line="44" column="19" selection-start="1265" selection-end="1265" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1425">
               <folding />
             </state>
           </provider>
@@ -146,8 +146,8 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/travis_pypi_setup.py" />
         <option value="$PROJECT_DIR$/README.rst" />
-        <option value="$PROJECT_DIR$/requirements_dev.txt" />
         <option value="$PROJECT_DIR$/setup.py" />
+        <option value="$PROJECT_DIR$/requirements_dev.txt" />
       </list>
     </option>
   </component>
@@ -788,21 +788,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="471" selection-end="471" vertical-scroll-proportion="0.4174397" vertical-offset="0" max-vertical-offset="720">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements_dev.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="13" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+        <state line="13" column="34" selection-start="469" selection-end="469" vertical-scroll-proportion="0.37937742" vertical-offset="0" max-vertical-offset="720">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="20" selection-start="1245" selection-end="1245" vertical-scroll-proportion="0.31906614" vertical-offset="451" max-vertical-offset="1425">
+        <state line="44" column="19" selection-start="1265" selection-end="1265" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="1425">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements_dev.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="140" selection-end="140" vertical-scroll-proportion="0.27829313" vertical-offset="0" max-vertical-offset="539">
           <folding />
         </state>
       </provider>

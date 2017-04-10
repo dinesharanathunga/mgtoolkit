@@ -42,7 +42,7 @@ requirements = [
     'Click>=6.0',
     'configobj==4.7.0',
     'pytest==2.7.0',
-    'numpy==1.12.1' # 1.10.2
+    'numpy==1.10.2'
 ]
 
 # noinspection PyPep8
