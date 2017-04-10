@@ -23,8 +23,7 @@ install:
  - conda install --yes -c dan_blanchard python-coveralls nose-cov
  - pip install setuptools
  - python setup.py install
- - pip install sdist
-
+ 
 script:
  - nosetests --with-cov --cover-tests mgtoolkit --cov-config .coveragerc --logging-level=INFO
 

@@ -77,28 +77,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".travis.yml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="README.rst" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.rst">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="66" selection-start="234" selection-end="283" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".travis.yml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="93" selection-start="748" selection-end="838" vertical-scroll-proportion="-16.8" vertical-offset="0" max-vertical-offset="540">
+            <state line="25" column="1" selection-start="716" selection-end="716" vertical-scroll-proportion="0.4345307" vertical-offset="0" max-vertical-offset="863">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".coveragerc" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name=".coveragerc" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.coveragerc">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="25" selection-start="184" selection-end="184" vertical-scroll-proportion="0.13513513" vertical-offset="0" max-vertical-offset="888">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_mgtoolkit.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/test_mgtoolkit.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+            <state line="6" column="25" selection-start="121" selection-end="122" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
               <folding />
             </state>
           </provider>
@@ -147,8 +147,8 @@
         <option value="$PROJECT_DIR$/requirements_dev.txt" />
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/tests/unit_tests.py" />
-        <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/.coveragerc" />
+        <option value="$PROJECT_DIR$/.travis.yml" />
       </list>
     </option>
   </component>
@@ -729,13 +729,6 @@
         <state line="263" column="16" selection-start="8154" selection-end="8154" vertical-scroll-proportion="0.0" vertical-offset="3687" max-vertical-offset="4335" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="32" selection-start="1495" selection-end="1495" vertical-scroll-proportion="0.20833333" vertical-offset="630" max-vertical-offset="1425">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/docs/reference.rst">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="0" selection-start="82" selection-end="82" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
@@ -759,20 +752,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.rst">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="470" selection-end="470" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="93" selection-start="748" selection-end="838" vertical-scroll-proportion="-16.8" vertical-offset="0" max-vertical-offset="540">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/test_mgtoolkit.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
@@ -780,9 +759,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="32" selection-start="1495" selection-end="1495" vertical-scroll-proportion="0.25675675" vertical-offset="537" max-vertical-offset="1425">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.rst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="66" selection-start="234" selection-end="283" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.coveragerc">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="25" selection-start="184" selection-end="184" vertical-scroll-proportion="0.13513513" vertical-offset="0" max-vertical-offset="888">
+        <state line="6" column="25" selection-start="121" selection-end="122" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="1" selection-start="716" selection-end="716" vertical-scroll-proportion="0.4345307" vertical-offset="0" max-vertical-offset="863">
           <folding />
         </state>
       </provider>
