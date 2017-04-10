@@ -68,10 +68,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".travis.yml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name=".travis.yml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="47" selection-start="772" selection-end="772" vertical-scroll-proportion="0.67839193" vertical-offset="0" max-vertical-offset="597">
+            <state line="14" column="8" selection-start="352" selection-end="352" vertical-scroll-proportion="-4.117647" vertical-offset="0" max-vertical-offset="510">
               <folding />
             </state>
           </provider>
@@ -86,10 +86,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".coveragerc" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name=".coveragerc" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.coveragerc">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="9" selection-start="168" selection-end="168" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+            <state line="8" column="7" selection-start="166" selection-end="166" vertical-scroll-proportion="0.18518518" vertical-offset="0" max-vertical-offset="648">
               <folding />
             </state>
           </provider>
@@ -146,9 +146,9 @@
         <option value="$PROJECT_DIR$/README.rst" />
         <option value="$PROJECT_DIR$/requirements_dev.txt" />
         <option value="$PROJECT_DIR$/setup.py" />
-        <option value="$PROJECT_DIR$/.coveragerc" />
         <option value="$PROJECT_DIR$/tests/unit_tests.py" />
         <option value="$PROJECT_DIR$/.travis.yml" />
+        <option value="$PROJECT_DIR$/.coveragerc" />
       </list>
     </option>
   </component>
@@ -773,13 +773,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.coveragerc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="9" selection-start="168" selection-end="168" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/test_mgtoolkit.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
@@ -810,7 +803,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="47" selection-start="772" selection-end="772" vertical-scroll-proportion="0.67839193" vertical-offset="0" max-vertical-offset="597">
+        <state line="14" column="8" selection-start="352" selection-end="352" vertical-scroll-proportion="-4.117647" vertical-offset="0" max-vertical-offset="510">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.coveragerc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="7" selection-start="166" selection-end="166" vertical-scroll-proportion="0.18518518" vertical-offset="0" max-vertical-offset="648">
           <folding />
         </state>
       </provider>
