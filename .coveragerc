@@ -1,5 +1,5 @@
 [run]
-source = mgtoolkit.tests.test_mgtoolkit.py
+source = mgtoolkit
 omit =
     */python?.?/*
     */lib-python/?.?/*.py

@@ -27,3 +27,21 @@ install:
 script:
  - nosetests --with-cov --logging-level=INFO
 
+
+deploy:
+  true:
+    condition: $TOXENV == py27
+    repo: dinesharanathunga/mgtoolkit
+    tags: true
+  distributions: sdist bdist_wheel
+  password:
+    secure: XZiZQx74bhZDQM+2HFO+WdfQuWBMrS0bohA88br67fu4XIB0VImLallZqIv1UJf5mRmpOJMhtlOiPJ3BWlFugoDqUeBRv5qheP4GM5C1tNXkhTLcEVjh72df7P0drJQz12riw1E2Uamm2r9TFpCCbXhxWrYv84SPUqJ2NOYlFzpDL4SacXYmLMgheD0BwltspDVDCPGUTEujvhvRmZlwiADL6UHRLppiCh+MRckGec+MR/IIqUj2UaqUBKWmy1i1Nnxp394G7AdeCxiUEq7P/MKBBQhkAFsCRw7hlDBJ9j9keHHzPEW4kaJoYKriXfaRh4Z0Ys1IT15JVi5hwCc+TTSTwy/IaOifc8HgoXkvWTYZE9dwJWBp7DMjtk//iISSM+21l0XdiwLSGUI3CkTo0thMs1tXhmAoSVzj0M9GXEjkgT+736fTMOhVWaLE7QlJbmgrldLSsKR7QmNtVK6NM4USB/fgMRM1A2B8RcI7PtV0ZpIlKuLhlv2jdTPaz4+XXSrKH1hUDlmBhXqT0zCQ8YxTydrAT+wBgr25xN6wZpV48Z1V1O/kKVLtyfwPUm7TpyqJmiyPSBr9O2l3vXxpZ1vu+2J7+7PfBdrafvL0r+VxPB/3DtV1RU+SphYA4+ZUyF4N+qW9nyV+/Wn+Jun9HlOVUC9uGnkY+eS+1vo/5/c=
+  provider: pypi
+  user: dinesharanathunga
+env:
+- TOXENV=py27
+- TOXENV=pypy
+language: python
+python: 2.7
+script: tox -e ${TOXENV}
+
