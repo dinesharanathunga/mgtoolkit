@@ -36,7 +36,7 @@ before_install:
 install:
  - conda create --yes -n test python=$TRAVIS_PYTHON_VERSION
  - source activate test
- - conda install --yes numpy=$NUMPY pip
+ - conda install --yes numpy=1.10.2 pip
  - conda install --yes -c dan_blanchard python-coveralls nose-cov
  - pip install setuptools
  - python setup.py install

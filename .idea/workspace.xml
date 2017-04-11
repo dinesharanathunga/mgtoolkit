@@ -80,7 +80,7 @@
       <file leaf-file-name=".travis.yml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="0" selection-start="1672" selection-end="1672" vertical-scroll-proportion="0.80046403" vertical-offset="0" max-vertical-offset="862">
+            <state line="35" column="8" selection-start="1373" selection-end="1373" vertical-scroll-proportion="0.6279904" vertical-offset="0" max-vertical-offset="836">
               <folding />
             </state>
           </provider>
@@ -795,7 +795,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="0" selection-start="1672" selection-end="1672" vertical-scroll-proportion="0.80046403" vertical-offset="0" max-vertical-offset="862">
+        <state line="35" column="8" selection-start="1373" selection-end="1373" vertical-scroll-proportion="0.6279904" vertical-offset="0" max-vertical-offset="836">
           <folding />
         </state>
       </provider>
