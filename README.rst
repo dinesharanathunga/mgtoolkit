@@ -24,7 +24,7 @@ and evaluating results.
 
 
 * Free software: MIT license
-* Documentation: http://mgtoolkit.readthedocs.io/en/latest/
+* Documentation: https://mgtoolkit.readthedocs.io/en/latest/?badge=latest
 
 
 Features
