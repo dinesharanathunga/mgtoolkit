@@ -9,10 +9,9 @@ Contents:
    readme
    installation
    usage
+   reference
    contributing
    authors
-   tutorial
-   reference
 
 Indices and tables
 ==================

@@ -64,6 +64,16 @@ class Triple(object):
                 full_desc += ', ' + desc
         return 'Triple(%s, %s, %s)' % (self.coinputs, self.cooutputs, full_desc)
 
+    def __eq__(self, other):
+        if other is None:
+            return False
+        if not isinstance(other,Triple):
+            return False
+
+        return (self.coinputs == other.coinputs and
+                self.cooutputs == other.cooutputs and
+                len(self.edges) == len(other.edges) and
+                self.edges == other.edges)
 
 class Node(object):
     """ Represents a metagraph node.
@@ -134,6 +144,16 @@ class Edge(object):
         :return: string
         """
         return self.label
+
+    def __eq__(self, other):
+        if other is None:
+            return False
+        if not isinstance(other, Edge):
+            return False
+
+        return (self.invertex == other.invertex and
+                self.outvertex == other.outvertex and
+                self.attributes == other.attributes)
 
 
 class Metapath(object):
@@ -387,7 +407,7 @@ class Metagraph(object):
         result = []
         if len(self.edges) > 0:
             for edge in self.edges:
-                if (invertex in edge.invertex) and (outvertex in edge.outvertex) and (edge not in result):
+                if (invertex.issubset(edge.invertex)) and (outvertex.issubset(edge.outvertex)) and (edge not in result):
                     result.append(edge)
 
         return result
@@ -441,7 +461,7 @@ class Metagraph(object):
                 x_i = list(self.generating_set)[i]
                 x_j = list(self.generating_set)[j]
                 # multiple edges may exist between x_i and x_j
-                edges = self.get_edges(x_i, x_j)
+                edges = self.get_edges({x_i}, {x_j})
                 if len(edges) > 0:
                     triples_list = []
                     for edge in edges:
@@ -577,6 +597,7 @@ class Metagraph(object):
         # noinspection PyCallingNonCallable
         return matrix(a_star)
 
+
     def get_all_metapaths_from(self, source, target):
         """ Retrieves all metapaths between given source and target in the metagraph.
         :param source: set
@@ -608,22 +629,30 @@ class Metagraph(object):
             if index not in all_applicable_input_rows:
                 all_applicable_input_rows.append(index)
 
+
+        cumulative_output_global = []
+        cumulative_edges_global = []
         for i in all_applicable_input_rows:
-            metapath_exist = False
-            cumulative_output = []
-            cumulative_edges = []
+            mp_exist_for_row=False
+            cumulative_output_local = []
+            cumulative_edges_local = []
             for x_j in target:
                 j = list(self.generating_set).index(x_j)
+
                 if self.a_star[i][j] is not None:
-                    metapath_exist = True
+                    mp_exist_for_row = True
+
                     # x_j is already an output
-                    cumulative_output.append(x_j)
+                    cumulative_output_local.append(x_j)
                     triples = MetagraphHelper().get_triples(self.a_star[i][j])
                     for triple in triples:
                         # retain cooutputs
                         output = triple.cooutputs
-                        if output is not None and output not in cumulative_output:
-                            cumulative_output.append(output)
+                        if output is not None:
+                            cumulative_output_local += output
+                        if output is not None:
+                            cumulative_output_global += output
+
                         #... and edges
                         if isinstance(triple.edges, Edge):
                             edges = MetagraphHelper().get_edge_list([triple.edges])
@@ -631,33 +660,35 @@ class Metagraph(object):
                             edges = MetagraphHelper().get_edge_list(triple.edges)
 
                         for edge in edges:
-                            if edge not in cumulative_edges:
-                                cumulative_edges.append(edge)
+                            if edge not in cumulative_edges_local:
+                                cumulative_edges_local.append(edge)
+                            if edge not in cumulative_edges_global:
+                                cumulative_edges_global.append(edge)
 
-            if not metapath_exist:
-                return None
+            if not mp_exist_for_row:
+               continue
 
-            is_subset = True
-            for elt in list(target):
-                if elt not in cumulative_output:
-                    is_subset = False
-                    break
-            if is_subset:
-                for edge in cumulative_edges:
-                    if edge not in metapaths:
-                        metapaths.append(edge)
+            # check if cumulative outputs form a cover for the target
+            if set(target).issubset(set(cumulative_output_local)):
+                if set(cumulative_edges_local) not in metapaths:
+                    metapaths.append(set(cumulative_edges_local))
 
-        valid_metapaths = []
-        from itertools import combinations
-        all_subsets = sum(map(lambda r: list(combinations(metapaths, r)), range(1, len(metapaths)+1)), [])
-        for path in all_subsets:
-            if len(path) <= len(metapaths):
+            elif set(target).issubset(set(cumulative_edges_global)):
+                if set(cumulative_edges_global) not in metapaths:
+                    metapaths.append(set(cumulative_edges_global))
+
+            else:
+                break
+
+        if len(metapaths)>0:
+            result=[]
+            for path in metapaths:
                 mp = Metapath(source, target, list(path))
                 if self.is_metapath(mp):
-                    valid_metapaths.append(mp)
-
-        #print('valid metapath computation- %s'%(time.time()- start))
-        return valid_metapaths
+                   result.append(mp)
+            return result
+        else:
+            return None
 
     def is_metapath(self, metapath_candidate):
         """ Checks if the given candidate is a metapath.
@@ -668,46 +699,17 @@ class Metagraph(object):
         if metapath_candidate is None:
             raise MetagraphException('metapath_candidate', resources['value_null'])
 
-        a_star = self.get_closure().tolist()
-        all_applicable_input_rows = []
-        for x_i in metapath_candidate.source:
-            index = list(self.generating_set).index(x_i)
-            if index not in all_applicable_input_rows:
-                all_applicable_input_rows.append(index)
-
-        all_applicable_output_cols = []
-        for x_j in metapath_candidate.target:
-            index = list(self.generating_set).index(x_j)
-            if index not in all_applicable_output_cols:
-                all_applicable_output_cols.append(index)
-
-        validated_edges = []
-        all_inputs = []
-        all_outputs = []
-        for i in all_applicable_input_rows:
-            for j in all_applicable_output_cols:
-                if a_star[i][j] is not None:
-                    # check simple paths
-                    for edge in metapath_candidate.edge_list:
-                        for triple in a_star[i][j]:
-                            edges1 = MetagraphHelper().get_edges_from_triple_list(triple)
-                            if (MetagraphHelper().is_edge_in_list(edge, edges1)) and (edge not in validated_edges):
-                                validated_edges.append(edge)
-
-                        for input_elt in list(edge.invertex):
-                            if input_elt not in all_inputs:
-                                all_inputs.append(input_elt)
-
-                        for output_elt in list(edge.outvertex):
-                            if output_elt not in all_outputs:
-                                all_outputs.append(output_elt)
-
+        all_inputs=[]
+        all_outputs=[]
         for edge in metapath_candidate.edge_list:
-            if edge not in validated_edges:
-                return False
+            for input_elt in list(edge.invertex):
+                if input_elt not in all_inputs:
+                    all_inputs.append(input_elt)
+            for output_elt in list(edge.outvertex):
+                if output_elt not in all_outputs:
+                    all_outputs.append(output_elt)
 
         # now check input and output sets
-        # check which (subset1.issubset(set(all_inputs).difference(set(all_outputs)))) ?
         if (set(all_inputs).difference(set(all_outputs)).issubset(metapath_candidate.source)) and \
            set(metapath_candidate.target).issubset(all_outputs):
             return True
@@ -986,7 +988,7 @@ class Metagraph(object):
             if diff.issubset(set(generator_subset)):
                 # add edges in combination to L
                 edges2 = MetagraphHelper().get_edges_from_triple_list(list(combination))
-                included = MetagraphHelper().is_edge_list_included(edges2, edge_list1)
+                included = MetagraphHelper().is_edge_list_included_recursive(edges2, edge_list1)
                 if not included:
                     edge_list1.append(edges2)
 
@@ -1611,7 +1613,7 @@ class ConditionalMetagraph(Metagraph):
         mg.add_edges_from(self.edges)
         return mg.get_projection(subset)
 
-    def get_all_metapaths_from(self, source, target):
+    def get_all_metapaths_from(self, source, target, prop_subset=None):
         """ Retrieves all metapaths between given source and target in the conditional metagraph.
         :param source: set
         :param target: set
@@ -1625,15 +1627,16 @@ class ConditionalMetagraph(Metagraph):
         if not source.issubset(self.generating_set):
             raise MetagraphException('subset1', resources['not_a_subset'])
         if not target.issubset(self.generating_set):
-            #print('error: %s - %s'%(target, self.generating_set))
             raise MetagraphException('subset2', resources['not_a_subset'])
 
         generator_set = self.variables_set.union(self.propositions_set)
         if self.mg is None:
             self.mg = Metagraph(generator_set)
             self.mg.add_edges_from(self.edges)
-        ## debug dr:: replace source below with this- source.union(self.propositions_set)
-        return self.mg.get_all_metapaths_from(source, target)  # source
+        if prop_subset is not None:
+            return self.mg.get_all_metapaths_from(source.union(prop_subset), target)
+        else:
+            return self.mg.get_all_metapaths_from(source.union(self.propositions_set), target)
 
     def get_all_metapaths(self):
         """ Retrieves all metapaths in the conditional metagraph.
@@ -1677,12 +1680,17 @@ class ConditionalMetagraph(Metagraph):
         """
 
         invertices = set()
+        intersec = set()
         edges = metapath.edge_list
         for edge in edges:
             invertices = invertices.union(edge.invertex)
+            if len(intersec)==0:
+                intersec = set(edge.attributes)
+            else:
+                intersec = intersec.intersection(set(edge.attributes))
 
         potential_conflicts_set = invertices.intersection(self.propositions_set)
-        if self.edge_attributes_conflict(potential_conflicts_set):
+        if self.edge_attributes_conflict(potential_conflicts_set, intersec):
             return True
 
         return False
@@ -1699,7 +1707,7 @@ class ConditionalMetagraph(Metagraph):
 
         return not self.is_dominant_metapath(metapath)
 
-    def edge_attributes_conflict(self, potential_conflicts_set):
+    def edge_attributes_conflict(self, potential_conflicts_set, intersecting_attr_set):
         """ Checks if given edge attributes conflict.
         :param potential_conflicts_set: set
         :return: boolean
@@ -1713,7 +1721,7 @@ class ConditionalMetagraph(Metagraph):
         actions = self.get_actions(potential_conflicts_set)
         #TODO: extend to support more attributes
 
-        if len(actions) > 1:
+        if len(intersecting_attr_set)>0 and 'allow' in actions and 'deny' in actions:
             return True
 
         return False
@@ -2153,6 +2161,40 @@ class MetagraphHelper:
 
         return result
 
+    def multiply_components(self, adjacency_matrix1, adjacency_matrix2, generator_set1, i, j, size):
+        """ Multiplies elements of two adjacency matrices.
+        :param adjacency_matrix1: numpy.matrix
+        :param adjacency_matrix2: numpy.matrix
+        :param generator_set1: set
+        :param i: int
+        :param j: int
+        :param size: int
+        :return: list of Triple objects.
+        """
+
+        if adjacency_matrix1 is None:
+            raise MetagraphException('adjacency_matrix1', resources['value_null'])
+        if adjacency_matrix2 is None:
+            raise MetagraphException('adjacency_matrix2', resources['value_null'])
+        if generator_set1 is None or len(generator_set1) == 0:
+            raise MetagraphException('generator_set1', resources['value_null'])
+
+        result = []
+        # computes the outermost loop (ie., k=1...K where K is the size of each input matrix)
+        for k in range(size):
+            a_ik = adjacency_matrix1[i][k]
+            b_kj = adjacency_matrix2[k][j]
+            temp = self.multiply_triple_lists(a_ik, b_kj, list(generator_set1)[i],
+                                              list(generator_set1)[j], list(generator_set1)[k])
+
+            if temp is not None and len(temp)>0:
+                result+=temp
+
+        if len(result) == 0:
+            return None
+
+        return list(set(result))
+
     def multiply_triple_lists(self, triple_list1, triple_list2, x_i, x_j, x_k):
         """ Multiplies two list of Triple objects and returns the result.
         :param triple_list1: list of Triple objects
@@ -2166,23 +2208,19 @@ class MetagraphHelper:
         if triple_list1 is None or triple_list2 is None:
             return None
 
-        result = []
+        triples_list=[]
         # computes the middle loop (ie., n=1...N where N is the size of triple_list1
-        #print('len(triple_list1): %s'%len(triple_list1))
-        #print('len(triple_list2): %s'%len(triple_list2))
-        #if len(triple_list1)==256:
-        #    print('here')
         for triple1 in triple_list1:
             # computes the innermost loop (ie., m=1...M where M is the size of triple_list2
             for triple2 in triple_list2:
-                #print('multiply_triples')
                 temp = self.multiply_triples(triple1, triple2, x_i, x_j, x_k)
                 if temp is not None:
-                    if not MetagraphHelper().is_triple_in_list(temp, result):
-                        result.append(temp)
-                    #if temp not in result: result.append(temp)
+                    triples_list.append(temp)
 
-        return result
+        if len(triples_list)>0:
+            return list(set(triples_list))
+
+        return []
 
     @staticmethod
     def multiply_triples(triple1, triple2, x_i, x_j, x_k):
@@ -2228,14 +2266,14 @@ class MetagraphHelper:
             if isinstance(triple1.edges, Edge):
                 truncated.append(triple1.edges)
             else:
-                truncated = [edge for edge in triple1.edges]
+                if isinstance(triple1.edges, list):
+                    truncated = copy.copy(triple1.edges)
 
         if triple2.edges not in truncated:
             if isinstance(triple2.edges, Edge):
                 truncated.append(triple2.edges)
             else:
-                truncated = [edge for edge in triple2.edges]
-            #truncated.append(triple2.edges)
+                truncated = copy.copy(triple2.edges)
 
         gamma_r = truncated
 
@@ -2341,28 +2379,19 @@ class MetagraphHelper:
         :return: boolean
         """
 
-        if triple is None:
+        if triple==None:
             raise MetagraphException('triple', resources['value_null'])
-        if triples_list is None:
+        if triples_list==None:
             raise MetagraphException('triples_list', resources['value_null'])
 
-        result = False
+        result=False
 
-        if isinstance(triples_list, list):
-            for element in triples_list:
-                result = self.is_triple_in_list(triple, element)
-                if result:
-                    break
-
-        elif isinstance(triples_list, Triple):
-            if self.are_triples_equal(triple, triples_list):
-                result = True
+        for element in triples_list:
+            if self.are_triples_equal(triple, element):
+               result= True
+               break
 
         return result
-
-        #for elt in triples_list:
-        #    if self.are_triples_equal(triple,elt): return True
-        #return False
 
     def is_edge_in_list(self, edge, nested_edges):
         """ Checks whether a particular edge is in the nested list of edges.
@@ -2493,7 +2522,7 @@ class MetagraphHelper:
         return node1.element_set == node2.element_set
 
     @staticmethod
-    def is_edge_list_included(edges, reference_edge_list):
+    def is_edge_list_included_recursive(edges, reference_edge_list):
         """ Checks if an edge list is included in the reference edge list.
         :param edges: list of Edge objects
         :param reference_edge_list: reference lists of Edge objects
@@ -2521,6 +2550,21 @@ class MetagraphHelper:
                 return True
 
         return False
+
+    @staticmethod
+    def is_edge_list_included(edge_list1, edge_list2):
+        """ Checks if an edge list is included in edge_list2.
+        :param edge_list1: first  list of Edge objects
+        :param edge_list2: second list of Edge objects
+        :return: boolean
+        """
+
+        if edge_list1 is None or len(edge_list1) == 0:
+            raise MetagraphException('edge_list1', resources['value_null'])
+        if edge_list2 is None or len(edge_list2) == 0:
+            raise MetagraphException('edge_list2', resources['value_null'])
+
+        return set(edge_list1).issubset(set(edge_list2))
 
     def get_netinputs(self, edge_list):
         """ Retrieves a list of net inputs corresponding to the given edge list.
@@ -2650,7 +2694,7 @@ class MetagraphHelper:
 
         for node1 in nodes_list1:
             for node2 in nodes_list2:
-                intersection = node1.get_element_set.intersection(node2.get_element_set)
+                intersection = node1.get_element_set().intersection(node2.get_element_set())
                 if intersection is not None and len(intersection) > 0:
                     return True
 
@@ -2687,7 +2731,7 @@ class MetagraphHelper:
         if nodes_list is not None and len(nodes_list) > 0:
             result = set()
             for node in nodes_list:
-                result = result.union(node.get_element_set)
+                result = result.union(node.get_element_set())
 
             return result
 
@@ -2795,6 +2839,23 @@ class MetagraphHelper:
 
         # noinspection PyRedundantParentheses
         return (r_ij, t_a, t_b)
+
+    @staticmethod
+    def get_pre_requisites_list(pre_requisites_desc):
+        result=[]
+        if pre_requisites_desc=='NA':
+            return result
+        items= pre_requisites_desc.split(' or ')
+        for item in items:
+            item = item.replace('(','')
+            item = item.replace(')','')
+            sub_items = item.split(' and ')
+            if len(sub_items)>1 and sub_items not in result:
+                result.append(sub_items)
+            elif item not in result:
+                result.append(item)
+
+        return result
 
 
 

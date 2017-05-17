@@ -43,7 +43,7 @@ cooutput and edge list [1]. In the following example, coinput= None, cooutput={3
   4 row_1 = A[0,:]
   5 column_1 = A[:,0]
   6 # display an element of A
-  7 print(repr(A[0][1]))
+  7 print(repr(A[0,1]))
   8
   9 # output
   10 Triple(None, set([3]), Edge(set([1]), set([2, 3])))
@@ -61,7 +61,7 @@ objects.
   3 row_1 = A_star[0,:]
   4 column_1 = A_star[:,0]
   5 # display an element of A_star
-  6 print(repr(A_star[3][4]))
+  6 print(repr(A_star[3,4]))
   7
   8 # output
   9 [Triple(set([1]), None, Edge(set([1, 4]), set([5])))]
@@ -86,7 +86,7 @@ and ({3}, {6, 7}) between the input source and target of the underlying metagrap
   3 metapaths = mg.get_all_metapaths_from(source,target)
   4 # display results
   5 for metapath in metapaths:
-  6 print(repr(metapath))
+  6   print(repr(metapath))
   7 # output
   8 Metapath({ Edge(set([1]), set([2, 3])), Edge(set([3]), set([6, 7])) })
 
@@ -104,11 +104,11 @@ metapath.
 
   1 # check metapath dominance
   2 if len(metapaths)>0:
-  3 edge_dominant = mg.is_edge_dominant_metapath(metapaths[0])
-  4 input_dominant = mg.is_input_dominant_metapath(metapaths[0])
-  5 dominant = mg.is_dominant_metapath(metapaths[0])
-  6 print('edge_dominant: %s, input_dominant: %s, dominant: %s'%(
-    edge_dominant,input_dominant,dominant))
+  3   edge_dominant = mg.is_edge_dominant_metapath(metapaths[0])
+  4   input_dominant = mg.is_input_dominant_metapath(metapaths[0])
+  5   dominant = mg.is_dominant_metapath(metapaths[0])
+  6   print('edge_dominant: %s, input_dominant: %s, dominant: %s'%(
+      edge_dominant,input_dominant,dominant))
   7
   8 # output
   9 edge_dominant: True, input_dominant: True, dominant: True
@@ -183,7 +183,7 @@ set selected and allows to visualise it.
   3 generating_set2 = {1,2,3,4,5,6,7,8}
   4 mg2 = Metagraph(generating_set2)
   5 mg2.add_edges_from([ Edge({1}, {3,4}), Edge({3}, {6}), Edge({2}, {5}),
-    Edge({4,5}, set{7}), Edge({6,7}, {8}) ])
+    Edge({4,5}, {7}), Edge({6,7}, {8}) ])
   6 generator_subset = {1,2,6,7,8}
   7 projection = mg2.get_projection(generator_subset)
   8 # display result

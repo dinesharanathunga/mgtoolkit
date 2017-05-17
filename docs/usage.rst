@@ -2,7 +2,10 @@
 Usage
 =====
 
-To use mgtoolkit in a project::
+Contents:
 
-    import mgtoolkit
+.. toctree::
+   :maxdepth: 2
+
+   tutorial
 

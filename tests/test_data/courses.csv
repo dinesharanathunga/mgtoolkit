@@ -1,0 +1,51 @@
+code,name,prereq,sem,assumed,incompate
+APP MTH 2105,Optimisation and Operations Research II,MATHS 1012,Semester 2,"Basic computer programming skills such as would be obtained from COMP SCI 1012, 1101, MECH ENG 1100, 1102, 1103, 1104, 1105, C&ENG ENG 1012",NA
+APP MTH 3001,Applied Probability III,MATHS 2103 or (MATHS 2201 and MATHS 2202),Semester 1,Knowledge of Markov Chains such as would be obtained from MATHS 2103,NA
+APP MTH 3002,Fluid Mechanics III,MATHS 2101 and MATHS 2102 or MATHS 2201 and MATHS 2202,Semester 1,MATHS 2104,NA
+APP MTH 3014,Optimisation III,MATHS 1012,Semester 1,"Knowledge of linear programming such as would be obtained from APP MTH 2105 and basic computer programming skills such as would be obtained from COMP SCI 1012, 1101, MECH ENG 1100, 1102, 1103, 1104, 1105, C&ENVENG 1012",NA
+APP MTH 3016,Random Processes III,MATHS 1012,Semester 2,"Knowledge of Markov chains, such as would be obtained from MATHS 2103",NA
+APP MTH 3020,Stochastic Decision Theory III,MATHS 2103 or APP MTH 3001,Semester 2,"Knowledge of linear programming, such as would be obtained in APP MTH 2105",NA
+APP MTH 3021,Modelling with Ordinary Differential Equations III,(MATHS 2101 and MATHS 2102) or (MATHS 2201 and MATHS 2202),Semester 1,MATHS 2104,"Two of APP MTH 3000, APP MTH 3004, APP MTH 3013"
+APP MTH 3022,Optimal Functions and Nanomechanics III,(MATHS 2101 and MATHS 2102) or (MATHS 2201 and MATHS 2202),Semester 2,"Basic computer programming skills such as would be obtained from COMP SCI 1012, 1101, MECH ENG 1100, 1102, 1103, 1104, 1105, C&ENVENG 1012","APP MTH 3010, APP MTH 3019"
+APP MTH 3023,Partial Differential Equations and Waves III,(MATHS 2101 and MATHS 2102) or (MATHS 2201 and MATHS 2202),Semester 2,MATHS 2104,"APP MTH 3000, APP MTH 3017"
+MATHS 1008,Mathematics for Information Technology I,SACE Stage 2 Mathematical Studies,Semester 2,NA,NA
+MATHS 1009,Introduction to Financial Mathematics I,NA,Semester 1,SACE Stage 2 Mathematical Studies,"ECON 1005, ECON 1010, MATHS 1011, MATHS 1012, MATHS 1013"
+MATHS 1010,Applications of Quantitative Methods in Finance I,MATHS 1009,Semester 2,NA,"ECON 1005, ECON 1010, MATHS 1011, MATHS 1012, MATHS 1013"
+MATHS 1011,Mathematics IA,At least a C- in both SACE Stage 2 Mathematical Studies and SACE Stage 2 Specialist Mathematics; or a 3 in International Baccalaureate Mathematics HL; or MATHS 1013,Semester 1,At least B in both SACE Stage 2 Mathematical Studies and Specialist Mathematics. Students who have not achieved this standard are strongly advised to take MATHS 1013 Mathematics IM before attempting this course.,"ECON 1005, ECON 1010, MATHS 1009, MATHS 1010"
+MATHS 1011,Mathematics IA,At least a C- in both SACE Stage 2 Mathematical Studies and SACE Stage 2 Specialist Mathematics; or a 3 in International Baccalaureate Mathematics HL; or MATHS 1013,Semester 2,At least B in both SACE Stage 2 Mathematical Studies and Specialist Mathematics. Students who have not achieved this standard are strongly advised to take MATHS 1013 Mathematics IM before attempting this course.,"ECON 1005, ECON 1010, MATHS 1009, MATHS 1010"
+MATHS 1012,Mathematics IB,MATHS 1011,Semester 1,NA,"ECON 1005, ECON 1010, MATHS 1009, MATHS 1010"
+MATHS 1012,Mathematics IB,MATHS 1011,Summer School,NA,"ECON 1005, ECON 1010, MATHS 1009, MATHS 1010"
+MATHS 1012,Mathematics IB,MATHS 1011,Semester 2,NA,"ECON 1005, ECON 1010, MATHS 1009, MATHS 1010"
+MATHS 1013,Mathematics IM,At least a C- in SACE Stage 2 Mathematical Studies or 4 in International Baccalaureate Mathematics SL,Semester 1,NA,"ECON 1005, ECON 1010, MATHS 1009, MATHS 1010"
+MATHS 1015,Advanced Mathematical Perspectives I,NA,Semester 1,NA,NA
+MATHS 2100,Real Analysis II,MATHS 1012,Semester 2,NA,NA
+MATHS 2101,Multivariable & Complex Calculus II,MATHS 1012,Semester 1,NA,"PURE MTH 2005, MATHS 2202"
+MATHS 2102,Differential Equations II,MATHS 1012,Semester 1,NA,MATHS 2201
+MATHS 2103,Probability & Statistics II,MATHS 1012,Semester 1,NA,ECON 2504
+MATHS 2104,Numerical Methods II,"MATHS 1012 and (COMP SCI 1012 or 1101 or 1102 or 1201, MECH ENG 1100 or 1102 or 1103 or 1104 or 1105, or C&ENVENG 1012)",Semester 2,MATHS 2102 or MATHS 2201,NA
+MATHS 2201,Engineering Mathematics IIA,MATHS 1012,Semester 1,NA,MATHS 2102
+MATHS 2202,Engineering Mathematics IIB,MATHS 1012,Semester 2,MATHS 2201,MATHS 2101
+MATHS 2203,Advanced Mathematical Perspectives II,MATHS 1012 and MATHS 1015,Semester 2,NA,NA
+MATHS 3012,Financial Modelling: Tools & Techniques III,MATHS 1010 or MATHS 1011,Semester 2,Familiarity with Excel spreadsheets,"APP MTH 3011, APP MTH 3012"
+MATHS 3015,Communication Skills III,MATHS 1012 or COMP SCI 1102,Semester 2,NA,"CHEM ENG 3004, C&ENVENG 3000, ELEC ENG 3012, MECH ENG 3006"
+MATHS 3020,Advanced Mathematical Perspectives III,MATHS 2203,Semester 2,NA,NA
+MATHS 3021,Capstone Project in Mathematical Sciences III,12 units of Mathematical Sciences at Level II,Semester 2,NA,"MATHS 3020, MATHS 3015"
+PURE MTH 2106,Algebra II,MATHS 1012,Semester 1,NA,NA
+PURE MTH 3002,Topology and Analysis III,MATHS 2100,Semester 1,NA,NA
+PURE MTH 3007,Groups and Rings III,MATHS 1012,Semester 1,PURE MTH 2106,NA
+PURE MTH 3009,Integration and Analysis III,MATHS 2100,Semester 2,NA,NA
+PURE MTH 3019,Complex Analysis III,MATHS 2100 or MATHS 2101 or MATHS 2202,Semester 1,MATHS 2101 or MATHS 2202,NA
+PURE MTH 3022,Geometry of Surfaces III,MATHS 2100 0r MATHS 2101 or MATHS 2202,Semester 2,MATHS 2101 or MATHS 2202,NA
+PURE MTH 3023,Fields and Modules III,MATHS 1012,Semester 2,"PURE MTH 2106, PURE MTH 3007",NA
+STATS 1000,Statistical Practice I,NA,Semester 1,SACE stage 2 Mathematical Methods,"STATS 1004, STATS 1005, ECON 1008, STATS 1504"
+STATS 1000,Statistical Practice I,NA,Semester 2,SACE stage 2 Mathematical Methods,"STATS 1004, STATS 1005, ECON 1008, STATS 1504"
+STATS 1004,Statistical Practice I (Life Sciences),NA,Semester 1,SACE stage 2 Mathematical Methods,"STATS 1000, STATS 1005, ECON 1008, STATS 1504"
+STATS 1004,Statistical Practice I (Life Sciences),NA,Semester 2,SACE stage 2 Mathematical Methods,"STATS 1000, STATS 1005, ECON 1008, STATS 1504"
+STATS 1005,Statistical Analysis & Modelling 1,At least a C- in both SACE Stage 2 Mathematical Studies and SACE Stage 2 Specialist Mathematics; or a 3 in International Baccalaureate Mathematics HL; or MATHS 1013,Semester 2,NA,"STATS 1000, STATS 1004, STATS 1504, ECON 1008"
+STATS 1504,Statistical Practice I (Life Sciences) (Vet Bio),NA,Semester 1,SACE stage 2 Mathematical Methods,"STATS 1000, STATS 1005, ECON 1008 and STATS 1004"
+STATS 1504,Statistical Practice I (Life Sciences) (Vet Bio),NA,Semester 2,SACE stage 2 Mathematical Methods,"STATS 1000, STATS 1005, ECON 1008 and STATS 1004"
+STATS 2107,Statistical Modelling and Inference II,MATHS 1012,Semester 2,(STATS 1000 or STATS 1004 or STATS 1005 or STATS 1504 or MATHS 2201) and MATHS 2103. Experience with the statistical package R such as would be obtained from STATS 1005,NA
+STATS 3001,Statistical Modelling III,STATS 2107 or (MATHS 2201 and  MATHS 2202),Semester 1,Experience with the statistical package R such as would be obtained from STATS 1005 or STATS 2107,NA
+STATS 3003,Sampling Theory and Practice III,STATS 2107 or (MATHS 2201 and  MATHS 2202),Semester 2,Experience with the statistical package R such as would be obtained from STATS 1005 or STATS 2107,NA
+STATS 3005,Time Series III,STATS 2107 or (MATHS 1012 and ECON 2504) or (MATHS 2201 and 2202),Semester 2,Experience with the statistical package R such as would be obtained from STATS 1005 or STATS 2107,NA
+STATS 3006,Mathematical Statistics III,STATS 2107 or (MATHS 2201 and MATHS  2202),Semester 1,STATS 2107,NA

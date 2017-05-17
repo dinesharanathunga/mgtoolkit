@@ -1,7 +1,11 @@
 
-*********
-mgtoolkit
-*********
+============
+Reference
+============
+
+*************
+mgtoolkit API
+*************
 
 
 .. automodule:: mgtoolkit.library
