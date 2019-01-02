@@ -1,5 +1,5 @@
 import unittest
-from mgtoolkit.library import Metagraph, ConditionalMetagraph, Edge, MetagraphHelper
+from mgtoolkit.library import Metagraph, ConditionalMetagraph, Edge, MetagraphHelper, Metapath
 
 
 # noinspection PyAttributeOutsideInit
@@ -204,82 +204,29 @@ class RunTests(unittest.TestCase):
         self.assertEqual(is_cutset, False)
         self.assertEqual(is_bridge, True)
 
-    def test_course_dependencies(self):
-        import os
-        import csv
-        course_details_lookup=dict()
-        edge_list=[]
-        generator_list=[]
+    def test_conflict(self):
+        variable_set = {'u1','u2','u3','u4','u5','u6','r1','r2','r3'}
+        propositions_set = {'action=permit', 'action=deny'}
+        cm = ConditionalMetagraph(variable_set, propositions_set)
+        cm.add_edges_from([
+                Edge({'u1','u2','u3'}, {'r1','r2'}, attributes=['action=permit']),
+                Edge({'u3','u4','u5'}, {'r2','r3'}, attributes=['action=deny']),
+                Edge({'u2','u3','u5','u6'}, {'r1','r2'}, attributes=['action=permit'])])
 
-        folder_path= os.path.join(os.getcwd(),'test_data')
-        file_name='courses.csv'
-
-        with open(os.path.join(folder_path, file_name), 'rb') as csvfile:
-            reader = csv.reader(csvfile, delimiter=',', quotechar='|')
-            index=0
-            for row in reader:
-                if index==0:
-                    # omit header
-                    index+=1
-                    continue
-                code = row[0]
-                name = row[1]
-                pre_requisites= MetagraphHelper().get_pre_requisites_list(row[2])
-                if code not in course_details_lookup:
-                    course_details_lookup[code]=dict()
-                if 'name' not in course_details_lookup[code]:
-                    course_details_lookup[code]['name']= name
-                if 'pre-requisites' not in course_details_lookup[code]:
-                    course_details_lookup[code]['pre-requisites']= pre_requisites
-                index+=1
-
-            for code, details in course_details_lookup.iteritems():
-                if code not in generator_list:
-                    generator_list.append(code)
-                for pre_requisite in course_details_lookup[code]['pre-requisites']:
-                    if isinstance(pre_requisite, list):
-                        edge_list.append(Edge(set(pre_requisite), set([code])))
-                        for item in pre_requisite:
-                            if item not in generator_list:
-                                generator_list.append(item)
-                    else:
-                        edge_list.append(Edge(set([pre_requisite]), set([code])))
-                        if pre_requisite not in generator_list:
-                           generator_list.append(pre_requisite)
-
-        # create course metagraph
-        mg = Metagraph(set(generator_list))
-        mg.add_edges_from(edge_list)
-
-        # run simple test - what are the patways to course "APP MTH 3001"?
-        target= {'APP MTH 3001'}
-        source = set(generator_list).difference(target)
-        metapaths = mg.get_all_metapaths_from(source, target)
-
-        # remove duplicates
-        filtered=[]
-        for mp1 in metapaths:
-            included=False
-            for mp2 in metapaths:
-                if mp1!=mp2:
-                    if MetagraphHelper().is_edge_list_included(mp1.edge_list,mp2.edge_list):
-                       included = True
-                       break
-            if not included:
-                filtered.append(mp1)
-
-        # print output
-        #index=1
-        #for mp in filtered:
-        #    print('metapath %s'%index)
-        #    for edge in mp.edge_list:
-        #        print(repr(edge))
-        #    index+=1
-
-        self.assertEqual(len(filtered), 4)
+        all_metapaths = cm.get_all_metapaths()
+        for metapath in all_metapaths:
+            if cm.has_redundancies(metapath):
+                pass
+            #    print('redundancy detected: %s'%repr(metapath))
+            if cm.has_conflicts(metapath):
+                pass
+            #   print('conflict detected: %s'%repr(metapath.edge_list))
+        return
 
 
-if __name__ == '__main__':
-    unittest.main()
+
+
+
+
 
 
