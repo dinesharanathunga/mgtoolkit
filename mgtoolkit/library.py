@@ -75,6 +75,7 @@ class Triple(object):
                 len(self.edges) == len(other.edges) and
                 self.edges == other.edges)
 
+
 class Node(object):
     """ Represents a metagraph node.
     """
@@ -206,13 +207,13 @@ class Metapath(object):
         if metapath is None:
             raise MetagraphException('metapath', resources['value_null'])
 
-        input1 = self.source
-        input2 = metapath.source
+        input1 = self.source # B
+        input2 = metapath.source # B'
 
-        output1 = self.target
-        output2 = metapath.target
+        output1 = self.target # C
+        output2 = metapath.target # C'
 
-        if input1.issubset(input2) and output2.issubset(output1):
+        if input1.issubset(input2) and output2.issubset(output1): # B <= B', C' <= C
             return True
 
         return False
@@ -446,7 +447,7 @@ class Metagraph(object):
             return set(cooutputs)
         return None
 
-    def adjacency_matrix(self):
+    def adjacency_matrix_old(self):
         """ Returns the adjacency matrix of the metagraph.
         :return: numpy.matrix
         """
@@ -474,6 +475,42 @@ class Metagraph(object):
                     adj_matrix[i][j] = triples_list
 
         # return adj_matrix
+        # noinspection PyCallingNonCallable
+        return matrix(adj_matrix)
+
+    def adjacency_matrix(self):
+        """ Returns the adjacency matrix of the metagraph.
+        :return: numpy.matrix
+        """
+        # get matrix size
+        size = len(self.generating_set)
+        adj_matrix = MetagraphHelper().get_null_matrix(size, size)
+
+        # create lookup table
+        count=1
+        triples_lookup=dict()
+        for edge in self.edges:
+             for elt1 in edge.invertex:
+                  for elt2 in edge.outvertex:
+                      coinputs = self.get_coinputs(edge, elt1)
+                      cooutputs = self.get_cooutputs(edge, elt2)
+                      triple = Triple(coinputs, cooutputs, edge)
+                      if (elt1,elt2) not in triples_lookup:
+                         triples_lookup[(elt1,elt2)] = []
+                      triples_lookup[(elt1,elt2)].append(triple)
+                      count+=1
+
+        count=1
+        gen_elts = list(self.generating_set)
+        for i in range(size):
+             for j in range(size):
+                  x_i = gen_elts[i]
+                  x_j = gen_elts[j]
+                  try:
+                      adj_matrix[i][j] = triples_lookup[(x_i,x_j)]
+                  except BaseException,e:
+                      pass
+
         # noinspection PyCallingNonCallable
         return matrix(adj_matrix)
 
@@ -597,7 +634,6 @@ class Metagraph(object):
         # noinspection PyCallingNonCallable
         return matrix(a_star)
 
-
     def get_all_metapaths_from(self, source, target):
         """ Retrieves all metapaths between given source and target in the metagraph.
         :param source: set
@@ -628,7 +664,6 @@ class Metagraph(object):
             index = list(self.generating_set).index(x_i)
             if index not in all_applicable_input_rows:
                 all_applicable_input_rows.append(index)
-
 
         cumulative_output_global = []
         cumulative_edges_global = []
@@ -681,14 +716,103 @@ class Metagraph(object):
                 break
 
         if len(metapaths)>0:
-            result=[]
-            for path in metapaths:
-                mp = Metapath(source, target, list(path))
-                if self.is_metapath(mp):
-                   result.append(mp)
-            return result
-        else:
+            #result=[]
+            #for path in metapaths:
+            #    mp = Metapath(source, target, list(path))
+            #    result.append(mp)
+            #return result
+
+            valid_metapaths = []
+            processed_edge_lists=[]
+            from itertools import combinations
+            for metapath in metapaths:
+                if len(metapath)>25:
+                   continue
+                all_subsets = sum(map(lambda r: list(combinations(list(metapath), r)), range(1, len(list(metapath))+1)), [])
+                for path in all_subsets:
+                    if len(path) <= len(metapath): # metapaths
+                        edge_list2 = self.get_edge_list2(path)
+                        if len(processed_edge_lists)>0:
+                            if MetagraphHelper().is_edge_list_included(edge_list2,processed_edge_lists):
+                                continue
+                        mp = Metapath(source, target, edge_list2)
+                        if self.is_metapath(mp):
+                            valid_metapaths.append(mp)
+            return valid_metapaths
+
+        return None
+
+    def get_all_metapaths_from200(self, source, target):
+        if source is None or len(source) == 0:
+            raise MetagraphException('source', resources['value_null'])
+        if target is None or len(target) == 0:
+            raise MetagraphException('target', resources['value_null'])
+
+        # check subset
+        if not source.intersection(self.generating_set) == source:
+            raise MetagraphException('source', resources['not_a_subset'])
+        if not target.intersection(self.generating_set) == target:
+            raise MetagraphException('target', resources['not_a_subset'])
+
+        # compute A* first
+        if self.a_star is None:
+            print('computing closure..')
+            self.a_star = self.get_closure().tolist()
+
+        print('find mps')
+        metapaths = []
+        all_applicable_input_rows = []
+        for x_i in source:
+            index = list(self.generating_set).index(x_i)
+            if index not in all_applicable_input_rows:
+                all_applicable_input_rows.append(index)
+
+        for x_j in target:
+            mp_exists=False
+            j = list(self.generating_set).index(x_j)
+            for i in all_applicable_input_rows:
+                if self.a_star[i][j] is not None:
+                    mp_exists=True
+                    break
+        if not mp_exists:
             return None
+
+        metapaths=[]
+        for x_j in target:
+            j = list(self.generating_set).index(x_j)
+            triples_set=set()
+            for i in all_applicable_input_rows:
+                triples = MetagraphHelper().get_triples(self.a_star[i][j])
+                triples_set = triples_set.union(set(triples))
+                if MetagraphHelper().forms_cover(triples_set, target, x_j):
+                    metapath = MetagraphHelper().get_metapath_from_triples(source, target, triples_set)
+                    metapaths.append(metapath)
+
+        for i in all_applicable_input_rows:
+            triples_set=set()
+            for x_j in target:
+                j = list(self.generating_set).index(x_j)
+                triples = MetagraphHelper().get_triples(self.a_star[i][j])
+                triples_set = triples_set.union(set(triples))
+                if MetagraphHelper().forms_cover(triples_set, target, x_j):
+                    metapath = MetagraphHelper().get_metapath_from_triples(source, target, triples_set)
+                    metapaths.append(metapath)
+
+        return metapaths
+
+    def get_edge_list(self, path):
+        result=set()
+        for elt in path:
+            result = result.union(elt)
+
+        return list(result)
+
+    def get_edge_list2(self, path):
+        result=set()
+        for elt in path:
+            result = result.union({elt})
+
+        return list(result)
 
     def is_metapath(self, metapath_candidate):
         """ Checks if the given candidate is a metapath.
@@ -765,7 +889,7 @@ class Metagraph(object):
                 if isinstance(subset, tuple):
                     subset = set(list(subset))
                 metapath1 = self.get_all_metapaths_from(subset, metapath.target)
-                if len(metapath1) > 0:
+                if metapath1 is not None and len(metapath1) > 0:
                     #print('source: %s, target: %s'%(subset, metapath.target))
                     return False
         return True
@@ -785,6 +909,7 @@ class Metagraph(object):
 
         if (self.is_edge_dominant_metapath(metapath) and
            self.is_input_dominant_metapath(metapath)):
+
             return True
 
         return False
@@ -843,28 +968,20 @@ class Metagraph(object):
         if target is None:
             raise MetagraphException('target', resources['value_null'])
 
-        # remove input edge list from original list
-        original_edges = self.edges
-        modified_edge_list = []
-        for edge1 in original_edges:
-            included = False
-            for edge2 in edge_list:
-                if edge1.invertex == edge2.invertex and edge1.outvertex == edge2.outvertex:
-                    included = True
-                    break
-            if not included:
-                modified_edge_list.append(edge1)
+        # get all metapaths
+        metapaths = self.get_all_metapaths_from(source, target)
+        if metapaths is not None and len(metapaths)>0:
+           for metapath in metapaths:
+                updated = MetagraphHelper().remove_edge_list(edge_list, metapath.edge_list)
+                mpc = Metapath(source, target, updated)
+                if self.is_metapath(mpc):
+                    # not a cutset
+                    return False
 
-        mg = Metagraph(self.generating_set)
-        mg.add_edges_from(modified_edge_list)
-        #adjacency_matrix = mg.adjacency_matrix().tolist()
+           # is a cutset
+           return True
 
-        metapaths = mg.get_all_metapaths_from(source, target)
-
-        if metapaths is not None and len(metapaths) > 0:
-            return False
-
-        return True
+        return False
 
     def get_minimal_cutset(self, source, target):
         """ Retrieves the minimal cutset between a given source and target.
@@ -916,6 +1033,8 @@ class Metagraph(object):
             raise MetagraphException('source', resources['value_null'])
         if target is None:
             raise MetagraphException('target', resources['value_null'])
+        if len(edge_list)!=1:
+            return False
 
         if not isinstance(edge_list, list):
             raise MetagraphException('edge_list', resources['arguments_invalid'])
@@ -965,11 +1084,11 @@ class Metagraph(object):
                     for triple in triples:
                         if isinstance(triple.edges, Edge):
                             new_triple = Triple(triple.coinputs, triple.cooutputs, [triple.edges])
-                            if new_triple not in all_triples:
+                            if not MetagraphHelper().is_triple_in_list(new_triple,all_triples):
                                 all_triples.append(new_triple)
                             edges = MetagraphHelper().extract_edge_list([triple.edges])
                         else:
-                            if triple not in all_triples:
+                            if not MetagraphHelper().is_triple_in_list(triple,all_triples):
                                 all_triples.append(triple)
                             edges = MetagraphHelper().extract_edge_list(triple.edges)
 
@@ -1643,21 +1762,34 @@ class ConditionalMetagraph(Metagraph):
         :return: List of Metapath objects
         """
 
-        #TODO: should we consider metapaths involving node groups?
-        #all_subsets=sum(map(lambda r: list(combinations(self.nodes, r)), range(1, len(self.nodes)+1)), [])
-        all_subsets = self.nodes
+        from itertools import combinations
+        all_subsets=sum(map(lambda r: list(combinations(self.nodes, r)), range(1, len(self.nodes)+1)), [])
 
-        cap_reached = False
         all_metapaths = []
         for subset1 in all_subsets:
             for subset2 in all_subsets:
                 if subset1 != subset2:
+
+                    if len(subset1)>1:
+                        element_set=set()
+                        for node in subset1:
+                            element_set = element_set.union(node.element_set)
+                        node1 = Node(element_set)
+                    else:
+                        node1=subset1[0]
+
+                    if len(subset2)>1:
+                        element_set=set()
+                        for node in subset2:
+                            element_set = element_set.union(node.element_set)
+                        node2 = Node(element_set)
+                    else:
+                        node2=subset2[0]
+
                     # TODO: can source and target in a metapath overlap?
-                    if not MetagraphHelper().nodes_overlap([subset1], [subset2]):  # (list(subset1), list(subset2)):
-                        #print('subset1: %s'%set(subset1))
-                        #print('subset2: %s'%set(subset2))
-                        source = MetagraphHelper().get_element_set([subset1])  # (list(subset1))
-                        target = MetagraphHelper().get_element_set([subset2])  # (list(subset2))
+                    if not MetagraphHelper().nodes_overlap([node1], [node2]):
+                        source = MetagraphHelper().get_element_set([node1])
+                        target = MetagraphHelper().get_element_set([node2])
                         mps = self.get_all_metapaths_from(source, target)
                         if mps is None or len(mps) == 0:
                             continue
@@ -1665,11 +1797,6 @@ class ConditionalMetagraph(Metagraph):
                         for mp in mps:
                             if mp not in all_metapaths:
                                 all_metapaths.append(mp)
-                        if len(all_metapaths) >= 10:
-                            cap_reached = True
-                            break
-            if cap_reached:
-                break
 
         return all_metapaths
 
@@ -1719,9 +1846,25 @@ class ConditionalMetagraph(Metagraph):
         # currently checks if actions conflict
         # extend later to include active times etc
         actions = self.get_actions(potential_conflicts_set)
-        #TODO: extend to support more attributes
 
-        if len(intersecting_attr_set)>0 and 'allow' in actions and 'deny' in actions:
+        malware_sigs = self.get_malware_sigs(potential_conflicts_set)
+        sig_present = self.get_sig_present(potential_conflicts_set)
+
+        # TODO: extend to support more attributes
+        if len(intersecting_attr_set)>0:
+            # check if diff response actions are applied to same malware sig list
+            if len(actions)>1 and len(malware_sigs)>1 and len(sig_present)==1:
+                intersection = set(malware_sigs[0])
+                for sig_list in malware_sigs:
+                    intersection = intersection.intersection(set(sig_list))
+                if len(intersection)>0:
+                    return True
+
+            # check if same response action is applied to different sig lists
+            if len(malware_sigs)>1 and len(actions)==1 and len(sig_present)==1:
+                return True
+
+        if ('allow' in actions or 'permit' in actions) and 'deny' in actions:
             return True
 
         return False
@@ -1742,6 +1885,33 @@ class ConditionalMetagraph(Metagraph):
                 if value not in actions:
                     actions.append(value)
         return actions
+
+    @staticmethod
+    def get_malware_sigs(attributes):
+        if attributes is None:
+            raise MetagraphException('attributes', resources['value_null'])
+        sigs = []
+        for attribute in attributes:
+            if 'malware_sigs' in attribute:
+                value = attribute.replace('malware_sigs=', '')
+                value = value.replace('[','')
+                value = value.replace(']','')
+                value = value.split(',')
+                if value not in sigs:
+                    sigs.append(value)
+        return sigs
+
+    @staticmethod
+    def get_sig_present(attributes):
+        if attributes is None:
+            raise MetagraphException('attributes', resources['value_null'])
+        present = []
+        for attribute in attributes:
+            if 'sig_present' in attribute:
+                value = attribute.replace('sig_present=', '')
+                if value not in present:
+                    present.append(value)
+        return present
 
     def is_connected(self, source, target, logical_expressions, interpretations):
         """Checks if subset1 is connected to subset2.
@@ -2087,6 +2257,21 @@ class MetagraphHelper:
 
         return result
 
+    def forms_cover(self,triples_set, target, x_j):
+        cumulative_output = {x_j}
+        for triple in triples_set:
+            # retain cooutputs
+            cumulative_output = cumulative_output.union(triple.cooutputs)
+
+        return target.issubset(cumulative_output)
+
+    def get_metapath_from_triples(self, source, target, triples_set):
+        edges=set()
+        for triple in triples_set:
+            edges = edges.union(triple.edges)
+
+        return Metapath(source,target,edges)
+
     def multiply_adjacency_matrices(self, adjacency_matrix1, generator_set1, adjacency_matrix2, generator_set2):
         """ Multiplies the two adjacency matrices provided and returns the result.
         :param adjacency_matrix1: numpy.matrix
@@ -2273,7 +2458,7 @@ class MetagraphHelper:
             if isinstance(triple2.edges, Edge):
                 truncated.append(triple2.edges)
             else:
-                truncated = copy.copy(triple2.edges)
+                truncated.append = copy.copy(triple2.edges)
 
         gamma_r = truncated
 
@@ -2342,6 +2527,19 @@ class MetagraphHelper:
                     edge_list.append(element)
 
         return edge_list
+
+    def remove_edge_list(self, edges_to_remove, target_edge_list):
+        """ Removes a given set of edges from a target set.
+        :param edges_to_remove: a list of edges to remove
+        :param target_edge_list: a list of target edges
+        :return: a list of Edge objects.
+        """
+        updated = []
+        for edge in target_edge_list:
+            if not self.is_edge_in_list(edge, edges_to_remove):
+                updated.append(edge)
+
+        return updated
 
     def get_edges_from_triple_list(self, nested_triples):
         """ Returns the edges present in a nested list of Triple objects.
@@ -2683,6 +2881,151 @@ class MetagraphHelper:
                 return True
 
         return False
+
+    def generate_visualisation(self, edge_list, file_path):
+        try:
+            clusters = dict()
+            edges = []
+            index = 0
+            for edge in edge_list:
+                inv=None
+                outv=None
+                if len(list(edge.invertex))>1:
+                    # is a cluster
+                    if edge.invertex not in clusters.values():
+                        # create new
+                        clusters[index] = edge.invertex
+                        inv = index
+                        index+=1
+                    else:
+                        # use existing
+                        inv = clusters.values().index(edge.invertex)
+
+                else:
+                    # indiv node
+                    inv = list(edge.invertex)[0]
+                    inv = inv.strip()
+                    inv = inv.replace(' ','_')
+                    inv = inv.replace('-','_')
+                    inv = inv.replace('"','')
+                    inv = inv.replace(';','')
+
+                if len(list(edge.outvertex))>1:
+                    # a cluster
+                    if edge.outvertex not in clusters.values():
+                        # create new
+                        clusters[index] = edge.outvertex
+                        outv=index
+                        index+=1
+                    else:
+                        # use existing
+                        outv = clusters.values().index(edge.outvertex)
+
+                else:
+                    # indiv node
+                    outv = list(edge.outvertex)[0]
+                    outv = outv.strip()
+                    outv = outv.replace(' ','_')
+                    outv = outv.replace('-','_')
+                    outv = outv.replace('"','')
+                    outv = outv.replace(';','')
+
+                if (inv, outv) not in edges:
+                    edges.append((inv, outv))
+
+            dot_output=[]
+            dot_output.append('digraph G { \n')
+            dot_output.append('compound=true; \n')
+
+            # clusters first
+            for index, content in clusters.iteritems():
+                dot_output.append('subgraph cluster%s { \n'%index)
+                for elt in list(content):
+                    #if '2202' in elt:
+                    #    print('test')
+
+                    elt = elt.strip()
+                    elt = elt.replace(' ','_')
+                    elt = elt.replace('-','_')
+                    elt = elt.replace('"','')
+                    elt = elt.replace(';','')
+                    dot_output.append('%s; \n'%elt)
+                dot_output.append('} \n')
+
+            # add all edges
+            for edge in edges:
+                inv = None
+                outv=None
+                inv_cluster=None
+                outv_cluster=None
+                if isinstance(edge[0],int):
+                    # invertex is a cluster
+                    inv_cluster='cluster%s'%edge[0]
+                    inv = clusters[edge[0]]
+                else:
+                    # invertex is an individual node
+                    inv = edge[0]
+
+                if isinstance(edge[1],int):
+                    # outvertex is a cluster
+                    outv_cluster='cluster%s'%edge[0]
+                    outv = clusters[edge[1]]
+                else:
+                    # outvertex is an individual node
+                    outv = edge[1]
+
+                if isinstance(inv,set) and isinstance(outv,set):
+                    # inv, outv both clusters
+                    a = list(inv)[0]
+                    b = list(outv)[0]
+                    a = a.strip()
+                    a = a.replace(' ','_')
+                    a = a.replace('-','_')
+                    a = a.replace('"','')
+                    a = a.replace(';','')
+                    b = b.strip()
+                    b = b.replace(' ','_')
+                    b = b.replace('-','_')
+                    b = b.replace('"','')
+                    b = b.replace(';','')
+                    dot_output.append('%s -> %s [ltail=%s,lhead=%s]; \n'%(a,b,inv_cluster,outv_cluster))
+                elif isinstance(inv,set) and isinstance(outv,str):
+                    # inv is cluster, outv is string
+                    a = list(inv)[0]
+                    a = a.strip()
+                    a = a.replace(' ','_')
+                    a = a.replace('-','_')
+                    a = a.replace('"','')
+                    a = a.replace(';','')
+                    dot_output.append('%s -> %s [ltail=%s]; \n'%(a,outv,inv_cluster))
+                elif isinstance(inv,str) and isinstance(outv,set):
+                    # inv is string, outv is cluster
+                    b = list(outv)[0]
+                    b = b.strip()
+                    b = b.replace(' ','_')
+                    b = b.replace('-','_')
+                    b = b.replace('"','')
+                    b = b.replace(';','')
+                    dot_output.append('%s -> %s [lhead=%s]; \n'%(inv,b,outv_cluster))
+                else:
+                    # inv, outv both string
+                    dot_output.append('%s -> %s; \n'%(inv,outv))
+
+            # write output to .dot file
+            dot_output.append('} \n')
+            dot_file_text=''
+            for line in dot_output:
+                dot_file_text +=line
+
+            #write policy file
+            dot_file=open(file_path,'w')
+            dot_file.write(dot_file_text)
+            dot_file.close()
+
+        except BaseException, e:
+            print('generate_visualisation:: Error- %s'%e)
+
+
 
     @staticmethod
     def nodes_overlap(nodes_list1, nodes_list2):
